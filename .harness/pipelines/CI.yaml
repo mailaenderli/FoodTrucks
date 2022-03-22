@@ -13,7 +13,7 @@ pipeline:
                 build: <+input>
     stages:
         - stage:
-              name: build
+              name: build-push
               identifier: build
               type: CI
               spec:
@@ -35,3 +35,4 @@ pipeline:
                                     tags:
                                         - latest
                                 failureStrategies: []
+              variables: []
