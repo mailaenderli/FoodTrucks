@@ -1,0 +1,15 @@
+connector:
+  name: dockerregistry
+  identifier: dockerregistry
+  description:
+  orgIdentifier: playground
+  projectIdentifier: FoodTruck
+  type: DockerRegistry
+  spec:
+    dockerRegistryUrl: https://registry.hub.docker.com/v2/
+    providerType: DockerHub
+    auth:
+      type: UsernamePassword
+      spec:
+        usernameRef: dockerhubuser
+        passwordRef: dockerhubtoken
