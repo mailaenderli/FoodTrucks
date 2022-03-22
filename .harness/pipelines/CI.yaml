@@ -35,4 +35,3 @@ pipeline:
                                     tags:
                                         - latest
                                 failureStrategies: []
-              variables: []
