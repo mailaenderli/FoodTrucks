@@ -1,0 +1,34 @@
+pipeline:
+    name: dev
+    identifier: dev
+    allowStageExecutions: false
+    projectIdentifier: FoodTruck
+    orgIdentifier: playground
+    tags: {}
+    properties:
+        ci:
+            codebase:
+                connectorRef: GitHubRepo
+                build: <+input>
+    stages:
+        - stage:
+              name: buildpush
+              identifier: buildpush
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: GKE
+                          namespace: default
+                  execution:
+                      steps:
+                          - step:
+                                type: BuildAndPushDockerRegistry
+                                name: dockerbuildpush
+                                identifier: dockerbuildpush
+                                spec:
+                                    connectorRef: dockerregistry
+                                    repo: rmailaender/foodtruck
+                                    tags: <+input>
