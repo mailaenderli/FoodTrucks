@@ -1,0 +1,37 @@
+pipeline:
+    name: CI
+    identifier: CI
+    allowStageExecutions: false
+    projectIdentifier: FoodTruck
+    orgIdentifier: playground
+    description: ""
+    tags: {}
+    properties:
+        ci:
+            codebase:
+                connectorRef: GitHubRepo
+                build: <+input>
+    stages:
+        - stage:
+              name: build
+              identifier: build
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: GKE
+                          namespace: harness-build
+                  execution:
+                      steps:
+                          - step:
+                                type: BuildAndPushDockerRegistry
+                                name: build-push
+                                identifier: buildpush
+                                spec:
+                                    connectorRef: dockerregistry
+                                    repo: miniproject/foodtruck
+                                    tags:
+                                        - latest
+                                failureStrategies: []
