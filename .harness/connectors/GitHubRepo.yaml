@@ -5,7 +5,7 @@ connector:
   projectIdentifier: FoodTruck
   type: Github
   spec:
-    url: https://github.com/mailaenderli/FoodTrucks
+    url: https://github.com/mailaenderli/FoodTrucks.git
     validationRepo: FoodTrucks
     authentication:
       type: Http
