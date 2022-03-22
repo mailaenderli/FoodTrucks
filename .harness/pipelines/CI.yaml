@@ -1,5 +1,5 @@
 pipeline:
-    name: CIv1
+    name: CI
     identifier: CI
     allowStageExecutions: false
     projectIdentifier: FoodTruck
