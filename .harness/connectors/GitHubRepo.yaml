@@ -1,7 +1,6 @@
 connector:
   name: GitHubRepo
   identifier: GitHubRepo
-  description:
   orgIdentifier: playground
   projectIdentifier: FoodTruck
   type: Github
