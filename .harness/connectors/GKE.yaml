@@ -1,0 +1,17 @@
+connector:
+  name: GKE
+  identifier: GKE
+  description:
+  orgIdentifier: playground
+  projectIdentifier: FoodTruck
+  type: K8sCluster
+  spec:
+    credential:
+      type: ManualConfig
+      spec:
+        masterUrl: https://34.159.149.150
+        auth:
+          type: ServiceAccount
+          spec:
+            serviceAccountTokenRef: gkeserviceaccounttoken
+            caCertRef: null
