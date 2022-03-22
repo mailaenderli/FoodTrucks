@@ -14,4 +14,3 @@ connector:
           type: ServiceAccount
           spec:
             serviceAccountTokenRef: gkeserviceaccounttoken
-            caCertRef: null
